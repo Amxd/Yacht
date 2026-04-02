@@ -2,6 +2,29 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
+				"operation": "merge",
+				"name": "Feed",
+				"values": {
+					"dataSourceName": "PDS",
+					"entitySchemaName": "UsrYacht"
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "AttachmentList",
+				"values": {
+					"columns": [
+						{
+							"id": "20a97964-1fe1-4ed3-8774-9582d1ac9aaa",
+							"code": "AttachmentListDS_Name",
+							"caption": "#ResourceString(AttachmentListDS_Name)#",
+							"dataValueType": 28,
+							"width": 200
+						}
+					]
+				}
+			},
+			{
 				"operation": "insert",
 				"name": "UsrName",
 				"values": {
@@ -21,90 +44,83 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				"index": 0
 			},
 			{
-				"operation": "merge",
-				"name": "AttachmentList",
+				"operation": "insert",
+				"name": "PricePerDay",
 				"values": {
-					"type": "crt.FileList",
-					"masterRecordColumnValue": "$Id",
-					"recordColumnName": "RecordId",
 					"layoutConfig": {
-						"colSpan": 2,
 						"column": 1,
-						"row": 1,
-						"rowSpan": 6
+						"colSpan": 1,
+						"row": 2,
+						"rowSpan": 1
 					},
-					"items": "$AttachmentList",
-					"primaryColumnName": "AttachmentListDS_Id",
-					"columns": [
-						{
-							"id": "20a97964-1fe1-4ed3-8774-9582d1ac9aaa",
-							"code": "AttachmentListDS_Name",
-							"caption": "#ResourceString(AttachmentListDS_Name)#",
-							"dataValueType": 28,
-							"width": 200
-						}
-					],
-					"viewType": "gallery",
-					"tileSize": "small"
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrPricePerDay_f5cpzs3",
+					"control": "$PDS_UsrPricePerDay_f5cpzs3",
+					"readonly": false,
+					"placeholder": "",
+					"labelPosition": "auto",
+					"tooltip": ""
 				},
-				"parentName": "AttachmentsTabContainer",
+				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
-				"index": 0
+				"index": 1
+			}
+		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
+		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
+			{
+				"operation": "merge",
+				"path": [
+					"attributes"
+				],
+				"values": {
+					"UsrName": {
+						"modelConfig": {
+							"path": "PDS.UsrName"
+						}
+					},
+					"PDS_UsrPricePerDay_f5cpzs3": {
+						"modelConfig": {
+							"path": "PDS.UsrPricePerDay"
+						}
+					}
+				}
 			},
 			{
 				"operation": "merge",
-				"name": "Feed",
+				"path": [
+					"attributes",
+					"Id",
+					"modelConfig"
+				],
 				"values": {
-					"type": "crt.Feed",
-					"feedType": "Record",
-					"primaryColumnValue": "$Id",
-					"cardState": "$CardState",
-					"dataSourceName": "PDS",
-					"entitySchemaName": "UsrYacht"
-				},
-				"parentName": "FeedTabContainer",
-				"propertyName": "items",
-				"index": 0
-			}
-		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
-		viewModelConfig: /**SCHEMA_VIEW_MODEL_CONFIG*/{
-			"attributes": {
-				"UsrName": {
-					"modelConfig": {
-						"path": "PDS.UsrName"
-					}
-				},
-				"Id": {
-					"modelConfig": {
-						"path": "PDS.Id"
-					}
+					"path": "PDS.Id"
 				}
 			}
-		}/**SCHEMA_VIEW_MODEL_CONFIG*/,
-		modelConfig: /**SCHEMA_MODEL_CONFIG*/{
-			"dataSources": {
-				"PDS": {
-					"type": "crt.EntityDataSource",
-					"config": {
-						"entitySchemaName": "UsrYacht"
-					},
-					"scope": "page"
-				},
-				"AttachmentListDS": {
-					"type": "crt.EntityDataSource",
-					"scope": "viewElement",
-					"config": {
-						"entitySchemaName": "SysFile",
-						"attributes": {
-							"Name": {
-								"path": "Name"
-							}
-						}
-					}
+		]/**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/,
+		modelConfigDiff: /**SCHEMA_MODEL_CONFIG_DIFF*/[
+			{
+				"operation": "merge",
+				"path": [],
+				"values": {
+					"primaryDataSourceName": "PDS"
 				}
 			},
-			"primaryDataSourceName": "PDS"
-		}/**SCHEMA_MODEL_CONFIG*/,
+			{
+				"operation": "merge",
+				"path": [
+					"dataSources"
+				],
+				"values": {
+					"PDS": {
+						"type": "crt.EntityDataSource",
+						"config": {
+							"entitySchemaName": "UsrYacht"
+						},
+						"scope": "page"
+					}
+				}
+			}
+		]/**SCHEMA_MODEL_CONFIG_DIFF*/,
 		handlers: /**SCHEMA_HANDLERS*/[]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
 		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
