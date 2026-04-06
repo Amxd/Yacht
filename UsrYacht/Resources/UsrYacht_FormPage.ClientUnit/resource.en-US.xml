@@ -10,6 +10,8 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_ja6hpt6_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_qffnaoi_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_st90ndj_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.PassengersCountInvalid.Value" Value="The passengers count must be greater than 2." />
+			<Item Name="LocalizableStrings.PricePerDayInvalid.Value" Value="Price per day must be greater than 500." />
 			<Item Name="LocalizableStrings.addRecord_i6td1n6_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_ruqpo28_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_u4j18y6_caption.Value" Value="Add new" />

@@ -78,6 +78,20 @@
   "A4": "4cc95b59-f7e9-4131-8ee4-87040ba965e4",
   "A5": "7a67e896-b5da-414f-bd3d-813cf9ad3290"
 }
++ MetaData.Schema.B2 {
+  "UId": "e60ef3c7-5119-fa91-ad7f-c5524ce41b1f",
+  "A2": "PricePerDayInvalid",
+  "A3": "4cc95b59-f7e9-4131-8ee4-87040ba965e4",
+  "A4": "4cc95b59-f7e9-4131-8ee4-87040ba965e4",
+  "A5": "7a67e896-b5da-414f-bd3d-813cf9ad3290"
+}
++ MetaData.Schema.B2 {
+  "UId": "7c78d108-c329-eb07-0a25-635cb1183bda",
+  "A2": "PassengersCountInvalid",
+  "A3": "4cc95b59-f7e9-4131-8ee4-87040ba965e4",
+  "A4": "4cc95b59-f7e9-4131-8ee4-87040ba965e4",
+  "A5": "7a67e896-b5da-414f-bd3d-813cf9ad3290"
+}
 = MetaData.Schema.B2.["fd9e5bd2-19ad-68b5-1356-fe7b39d36f28"].A4 "4cc95b59-f7e9-4131-8ee4-87040ba965e4"
 = MetaData.Schema.B2.["a77180d7-a9d0-5c7d-a47b-74c0545a1774"].A4 "4cc95b59-f7e9-4131-8ee4-87040ba965e4"
 = MetaData.Schema.B2.["a53e6c9a-741a-21de-9293-9d87d6014595"].A4 "4cc95b59-f7e9-4131-8ee4-87040ba965e4"
@@ -103,6 +117,8 @@
   "9a91cf1a-8e7d-2080-bbf9-0839d26fc6f0",
   "28354c1f-4971-58db-5517-1dbdeca63477",
   "ecfd8dab-6c09-7346-a41d-933d7f855164",
+  "e60ef3c7-5119-fa91-ad7f-c5524ce41b1f",
+  "7c78d108-c329-eb07-0a25-635cb1183bda",
   "fd9e5bd2-19ad-68b5-1356-fe7b39d36f28",
   "a77180d7-a9d0-5c7d-a47b-74c0545a1774",
   "a53e6c9a-741a-21de-9293-9d87d6014595",

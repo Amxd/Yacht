@@ -772,6 +772,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"PDS_UsrPricePerDay_f5cpzs3": {
 						"modelConfig": {
 							"path": "PDS.UsrPricePerDay"
+						},
+						"validators": {
+							"MinValue": {
+								"type": "usr.MinValueValidator",
+								"params": {
+									"minValue": 500,
+									"message": "#ResourceString(PricePerDayInvalid)#"
+								}
+							}
 						}
 					},
 					"PDS_UsrCaptain_ye9po7q": {
@@ -849,6 +858,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"PDS_UsrPassengersCount_mm0asi9": {
 						"modelConfig": {
 							"path": "PDS.UsrPassengersCount"
+						},
+						"validators": {
+							"MinValue": {
+								"type": "usr.MinValueValidator",
+								"params": {
+									"minValue": 2,
+									"message": "#ResourceString(PassengersCountInvalid)#"
+								}
+							}
 						}
 					},
 					"PDS_UsrCrewCount_b5lle9f": {
@@ -992,6 +1010,27 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 		]/**SCHEMA_MODEL_CONFIG_DIFF*/,
 		handlers: /**SCHEMA_HANDLERS*/[]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+			"usr.MinValueValidator": {
+				validator: function (config) {
+					return function (control) {
+						let value = control.value;
+						let minValue = config.minValue;
+
+						return value > minValue ? null : { "usr.MinValueValidator": { message: config.message } } ;
+						
+					};
+				},
+				params: [
+					{
+						name: "minValue"
+					},
+					{
+						name: "message"
+					}
+				],
+				async: false
+			}
+		}/**SCHEMA_VALIDATORS*/
 	};
 });
