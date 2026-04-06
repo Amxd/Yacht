@@ -81,12 +81,35 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "NumberInput_q9oi8gt",
+				"name": "TicketPrice",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
 						"colSpan": 1,
 						"row": 3,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrTicketPrice_q7yrp4u",
+					"control": "$PDS_UsrTicketPrice_q7yrp4u",
+					"readonly": true,
+					"placeholder": "",
+					"labelPosition": "auto",
+					"tooltip": "",
+					"visible": true
+				},
+				"parentName": "SideAreaProfileContainer",
+				"propertyName": "items",
+				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "NumberInput_q9oi8gt",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"colSpan": 1,
+						"row": 4,
 						"rowSpan": 1
 					},
 					"type": "crt.NumberInput",
@@ -99,7 +122,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
-				"index": 2
+				"index": 3
 			},
 			{
 				"operation": "insert",
@@ -934,6 +957,11 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 								}
 							}
 						}
+					},
+					"PDS_UsrTicketPrice_q7yrp4u": {
+						"modelConfig": {
+							"path": "PDS.UsrTicketPrice"
+						}
 					}
 				}
 			},
@@ -1008,7 +1036,28 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				}
 			}
 		]/**SCHEMA_MODEL_CONFIG_DIFF*/,
-		handlers: /**SCHEMA_HANDLERS*/[]/**SCHEMA_HANDLERS*/,
+		handlers: /**SCHEMA_HANDLERS*/[
+			{
+				request: "crt.HandleViewModelAttributeChangeRequest",
+				/* The custom implementation of the system query handler. */
+				handler: async (request, next) => {
+					// if price per day or passenger's count changed calculate ticket price
+      				if (request.attributeName === 'PDS_UsrPricePerDay_f5cpzs3' || request.attributeName === 'PDS_UsrPassengersCount_mm0asi9') { 
+
+						// get price per day
+						let pricePerDay = await request.$context.PDS_UsrPricePerDay_f5cpzs3;
+
+						// get passenger's count
+						let passengersCount = await request.$context.PDS_UsrPassengersCount_mm0asi9;
+
+						// set the value
+						request.$context.PDS_UsrTicketPrice_q7yrp4u = !!passengersCount ? (pricePerDay / passengersCount) : 0;
+					}
+					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
+			}
+		]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
 		validators: /**SCHEMA_VALIDATORS*/{
 			"usr.MinValueValidator": {
