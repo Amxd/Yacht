@@ -10,7 +10,7 @@
 			<Item Name="Columns.UsrManager.Caption" Value="Manager" />
 			<Item Name="Columns.UsrName.Caption" Value="Name" />
 			<Item Name="Columns.UsrPassengersCount.Caption" Value="Passengers Count" />
-			<Item Name="Columns.UsrPricePerDay.Caption" Value="Price per day (EUR)" />
+			<Item Name="Columns.UsrPricePerDay.Caption" Value="Yacht Price per day (EUR)" />
 			<Item Name="Columns.UsrPricePerDay.Description" Value="Price per day in EUR" />
 			<Item Name="Columns.UsrYachtDriveType.Caption" Value="Drive Type" />
 			<Item Name="Columns.UsrYachtStatus.Caption" Value="Status" />

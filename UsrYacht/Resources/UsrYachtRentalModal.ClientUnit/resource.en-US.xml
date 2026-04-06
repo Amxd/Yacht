@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Yacht Rental Modal" />
+			<Item Name="LocalizableStrings.NumberInput_wj0y9nn_label.Value" Value="Number" />
+			<Item Name="LocalizableStrings.UsrTotalPrice_Invalid.Value" Value="Total price cannot be 0." />
+			<Item Name="LocalizableStrings.addRecord_jbgctc4_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_tq0cezt_caption.Value" Value="Add new" />
+		</Items>
+	</Group>
+</Resources>
