@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Create 4 Rentals" />
+			<Item Name="LocalizableStrings.CancelButton2_caption.Value" Value="Cancel" />
+			<Item Name="LocalizableStrings.CloseButton2_caption.Value" Value="Close" />
+			<Item Name="LocalizableStrings.CreateRentals_caption.Value" Value="Create Rentals" />
+			<Item Name="LocalizableStrings.PageTitle_caption.Value" Value="Create 4 Rentals" />
+			<Item Name="LocalizableStrings.addRecord_b5o46bi_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_bkx7xpk_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_r30xr1l_caption.Value" Value="Add new" />
+			<Item Name="Parameters.0c836bc6-c61f-0965-3765-93f6ddb50415.Caption" Value="Customer" />
+			<Item Name="Parameters.bd0f1e10-a941-5a16-409d-680b19dff331.Caption" Value="Yacht" />
+		</Items>
+	</Group>
+</Resources>

@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "0bbc0d68-7985-4936-b571-b52e2a7a6844",
+    "Name": "UsrCreate4RentalsMiniPage",
+    "ModifiedOnUtc": "\/Date(1775503058000)\/",
+    "Parent": {
+      "UId": "ecdcc8ff-272c-4957-9381-7d74ce17e140",
+      "Name": "BaseMiniPageTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Create 4 Rentals"
+  }
+}

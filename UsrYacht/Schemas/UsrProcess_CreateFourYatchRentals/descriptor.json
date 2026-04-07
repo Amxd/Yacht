@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "5b03a628-c700-4474-8a03-f5d376a336d8",
+    "Name": "UsrProcess_CreateFourYatchRentals",
+    "ModifiedOnUtc": "\/Date(1775499267000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "CreateFourYachtRentals",
+    "DependsOn": []
+  }
+}

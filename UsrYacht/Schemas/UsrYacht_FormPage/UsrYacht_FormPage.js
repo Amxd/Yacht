@@ -582,6 +582,26 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
+				"name": "AddFourRentals",
+				"values": {
+					"type": "crt.Button",
+					"caption": "#ResourceString(AddFourRentals_caption)#",
+					"color": "outline",
+					"disabled": false,
+					"size": "large",
+					"iconPosition": "only-text",
+					"visible": true,
+					"clicked": {
+						"request": "usr.AddFourRentalsRequest"
+					},
+					"clickMode": "default"
+				},
+				"parentName": "FlexContainer_gxcc9b0",
+				"propertyName": "items",
+				"index": 4
+			},
+			{
+				"operation": "insert",
 				"name": "GridContainer_a95hxoi",
 				"values": {
 					"type": "crt.GridContainer",
@@ -916,7 +936,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 									"name": "GridDetailSearchFilter_qffnaoi_GridDetail_fo5fqrj",
 									"loadOnChange": true
 								}
-							]
+							],
+							"sortingConfig": {
+								"default": [
+									{
+										"direction": "asc",
+										"columnName": "UsrStartDate"
+									}
+								]
+							}
 						},
 						"viewModelConfig": {
 							"attributes": {
@@ -1054,6 +1082,38 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						request.$context.PDS_UsrTicketPrice_q7yrp4u = !!passengersCount ? (pricePerDay / passengersCount) : 0;
 					}
 					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
+			},
+			{
+				request: "usr.AddFourRentalsRequest",
+				handler: async (request, next) => {
+					// 1. Force the page to save first
+		            const saveResult = await request.$context.executeRequest({
+		                type: "crt.SaveRecordRequest",
+						preventCardClose: true,
+		                $context: request.$context
+		            });
+		            
+		            // 2. If the save fails (e.g., required fields missing), stop here
+		            if (!saveResult) {
+		                return next?.handle(request); 
+		            }
+
+					// 3. Get the currentYachtId
+					const currentYachtId = await request.$context.Id;
+
+
+					// 4. Open the "Create 4 Rentals" page programmatically
+					await request.$context.executeRequest({
+						type: "crt.OpenPageRequest",
+						$context: request.$context,
+						schemaName: "UsrCreate4RentalsMiniPage", 
+						parameters: {
+							"UsrYacht": currentYachtId
+						}
+					});
+		
 					return next?.handle(request);
 				}
 			}
